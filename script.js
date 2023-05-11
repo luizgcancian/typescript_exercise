@@ -16,7 +16,19 @@ function fetchCursos() {
     });
 }
 function mostrarCursos(cursos) {
-    document.body.innerHTML = `
-    
-    `;
+    cursos.map((arr) => {
+        let color;
+        if (arr.nivel === "avancado") {
+            color = "blue";
+        }
+        else if (arr.nivel === "iniciante") {
+            color = "green";
+        }
+        document.body.innerHTML += `<div>
+    <h2 style="color:${color}">${arr.nome}</h2>
+    <p> Horas: ${arr.horas}</p>
+    <p>Aulas: ${arr.aulas}</p>
+    </div>`;
+    });
 }
+fetchCursos();
